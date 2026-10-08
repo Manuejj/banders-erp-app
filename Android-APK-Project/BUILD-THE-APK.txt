@@ -1,0 +1,42 @@
+HOW TO MAKE THE ANDROID APP (APK) - Banders Potato ERP
+=====================================================
+
+An APK is the installable Android app file. It must be built once (it cannot be made inside a chat).
+Choose ONE way. Both are free.
+
+WAY 1 - GitHub (nothing to install on your computer)
+  1. Create a free account on github.com and click "New repository" (private is fine). Name it for example banders-erp-app.
+  2. On the new repository page click "uploading an existing file".
+  3. Open this folder (Android-APK-Project) on your computer, select EVERYTHING inside it
+     (including the hidden folder ".github") and drag it into the GitHub page. Click "Commit changes".
+     Tip: if the .github folder is not shown, turn on "Show hidden files" in Windows Explorer (View > Show).
+  4. Click the "Actions" tab. The "Build the APK" job starts by itself (about 3-6 minutes).
+     If it does not start, open "Build the APK" on the left and press "Run workflow".
+  5. When it turns green, open it and download "BandersPotatoERP-apk" at the bottom. Unzip it: app-debug.apk is the app.
+
+WAY 2 - Android Studio (on a Windows computer)
+  1. Install Android Studio (free, developer.android.com/studio).
+  2. File > Open > choose this folder (Android-APK-Project). Wait until it finishes "Gradle sync" (first time: several minutes).
+  3. Build > Build Bundle(s) / APK(s) > Build APK(s). When it says "APK(s) generated", click "locate".
+     The file is app/build/outputs/apk/debug/app-debug.apk.
+
+INSTALL ON PHONES
+  1. Send app-debug.apk to the phones (WhatsApp, Google Drive, USB cable).
+  2. Open the file. If Android asks, allow "Install unknown apps" for the app you opened it from. Tap Install.
+  3. Open "Banders Potato ERP" from the home screen. It opens full screen with your logo.
+
+WHAT THE APP DOES
+  - Opens the system full screen (no browser address bar) with a splash screen with the logo.
+  - Download PDF / CSV: files are saved in Downloads > BandersPotatoERP and a message confirms it.
+  - Send to WhatsApp: opens the phone share sheet with the PDF attached and the message ready - choose WhatsApp and the group.
+  - Take photo / Choose file for invoice copies: uses the phone camera and gallery (the first time Android asks to allow the camera).
+  - Back button: goes back; press it twice to exit. No internet: shows a "Try again" page.
+  - Needs internet, like the web system.
+
+IMPORTANT
+  - This is a "debug" APK: good for your own staff. Google Play needs a signed release build and a Google Play developer account (one-time fee).
+  - If the web link of the system changes (a NEW deployment), edit APP_URL near the top of
+    app/src/main/java/com/banderspotato/erp/MainActivity.java and build again. Updating the system with
+    "Deploy > Manage deployments > Edit > New version" keeps the same link, so the app needs no rebuild.
+  - The Java code was checked for typing errors, but it was not built with the real Android tools by the person who wrote it.
+    If the build shows an error, copy the red error text and send it back; it is usually a one-line fix.
